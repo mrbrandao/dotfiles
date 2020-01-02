@@ -109,10 +109,10 @@ i3:
 .PHONY: st
 st:
 	if [ ! -d /tmp/st ];then git clone https://git.suckless.org/st /tmp/st;fi
-	cp /tmp/st/config.def.h /tmp/config.h
+	cp /tmp/st/config.def.h /tmp/st/config.h
 	sed -i 's/borderpx\ =\ 2/borderpx\ =\ 1/' /tmp/st/config.h
 	sed -i 's/Liberation\ Mono:pixelsize=12/Monospace:pixelsize=13/' /tmp/st/config.h
 	sed -i 's/defaultfg\ =\ 7/defaultfg\ =\ 247/' /tmp/st/config.h
 	sed -i 's/defaultcs\ =\ 256/defaultcs\ =\ 239/' /tmp/st/config.h
 	sed -i 's/defaultrcs\ =\ 257/defaultrcs\ =\ 247/' /tmp/st/config.h
-	(cd /tmp/st;make;install st ~/apps/st)
+	(cd /tmp/st;make;install st ~/apps/bin/st)
