@@ -1,5 +1,33 @@
-
+# 
+# The default makefile for this project
+# by: Isca
+#
+#
+# 
 piver = $$(pip -V|awk -F'(' '{print $$2}'|awk '{print $$2}'|awk -F')' '{print $$1}')
+
+.PHONY: help
+help:
+
+	$(info Makefile Usage:)
+	$(info all 			- install everything with spacevim)
+	$(info nospace 		- install everything with default vim)
+	$(info bashrc 			- install .bashrc)
+	$(info fonts 			- install fonts)
+	$(info powerline 		- install powerline)
+	$(info vim 			- configure vimrc and plugins)
+	$(info gpg 			- configure gpg pinentry)
+	$(info mutt 			- configure mutt)
+	$(info spacevim  		- install and configure SpaceVim)
+	$(info i3  			- configure i3 window manager)
+	$(info st  			- install and configure suckless terminal)
+	@printf "\n"
+
+.PHONY: all
+all: bashrc tmux gpg mutt spacevim i3 st
+
+.PHONY: nospace
+nospace: bashrc tmux gpg mutt vim i3 st
 
 .PHONY: bashrc
 bashrc:
@@ -64,10 +92,10 @@ spacevim:
 i3:
 	# installing i3 apps
 	if [ ! -d ~/apps ];then mkdir ~/apps;fi
-	cp -Rpavf apps ~/apps
+	cp -Rpavf apps/* ~/apps
 	# installing i3 config
 	if [ ! -d ~/.config/i3 ];then mkdir ~/.config/i3;fi
-	cp -Rpav i3 ~/.config/i3
+	cp -Rpav i3/* ~/.config/i3
 	# configuring xextras
 	if [ ! -d ~/.Xresources.d ];then mkdir ~/.Xresources.d;fi
 	cp -bv .Xdefaults .xinitrc .inputrc ~/

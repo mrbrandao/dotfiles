@@ -1,0 +1,8 @@
+#!/bin/sh
+IN="HDMI1"
+OUT="DP1"
+#IN="DP1"
+#OUT="HDMI1"
+
+xrandr --output $IN --output $OUT --auto --right-of $IN
+

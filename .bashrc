@@ -63,4 +63,4 @@ unset MANPATH
 # use vim on terminal
 set -o vi
 # my local apps path
-export PATH=$PATH:$HOME/apps
+export PATH=$PATH:$HOME/apps/bin

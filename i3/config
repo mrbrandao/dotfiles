@@ -36,7 +36,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec "st -t Suckeless"
+bindsym $mod+Return exec "$HOME/apps/st -t Suckeless"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -50,13 +50,13 @@ bindsym $mod+space exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #exec feh --bg-scale Images/ewok.jpg
-exec /home/isb/apps/bin/rander
+exec $HOME/apps/bin/rander
 exec compton -cCG -i 0.88 -e 0.75 -I 0.1 --active-opacity 0.95
 #exec xautolock -time 5 -locker "xlock +xinerama -dpmsstandby 0"&
 exec xset s off -dpms
 #exec xautolock -time 5 -locker "xlock +xinerama -mode gears"&
 exec xautolock -time 5 -locker "xlock +xinerama -mode xjack"&
-exec feh --bg-fill /home/isb/Images/bg/snake.jpg
+exec feh --bg-fill $HOME/Images/bg/snake.jpg
 
 
 # change focus
