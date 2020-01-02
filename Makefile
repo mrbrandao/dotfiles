@@ -37,8 +37,13 @@ bashrc:
 .PHONY: fonts
 fonts:
 	if [ ! -d ~/.fonts ];then mkdir ~/.fonts;fi
-	cp -pv .fonts/* ~/.fonts
+	if [ ! -d ~/.local/share/fonts ];then mkdir -p ~/.local/share/fonts;fi
+	cp -pv .fonts/* ~/.local/share/fonts
+	wget https://github.com/madmalik/mononoki/releases/download/1.2/mononoki.zip -O /tmp/mononoki.zip
+	unzip /tmp/mononoki.zip -d ~/.local/share/fonts
+	ln -s ~/.local/share/fonts/* ~/.fonts
 	fc-cache -vf ~/.fonts
+	fc-cache -vf ~/.local/share/fonts
 	cp -Rpv .fontconfig ~/.fontconfig
 
 .PHONY: powerline
@@ -106,5 +111,6 @@ st:
 	if [ ! -d /tmp/st ];then git clone https://git.suckless.org/st /tmp/st;fi
 	cp /tmp/st/config.def.h /tmp/config.h
 	sed -i 's/borderpx\ =\ 2/borderpx\ =\ 1/' /tmp/st/config.h
-	sed -i 's/Mono:pixelsize=12/Mono:pixelsize=13/' /tmp/st/config.h
+	sed -i 's/Liberation\ Mono:pixelsize=12/mononoki-Regular:pixelsize=13/' /tmp/st/config.h
+	sed -i 's/defaultfg\ =\ 7/defaultfg\ =\ 247/' /tmp/st/config.h
 	(cd /tmp/st;make;install st ~/apps/st)
