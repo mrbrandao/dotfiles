@@ -45,6 +45,7 @@ fonts:
 	fc-cache -vf ~/.fonts
 	fc-cache -vf ~/.local/share/fonts
 	cp -Rpv .fontconfig ~/.fontconfig
+	rm -rf /tmp/mononoki.zip
 
 .PHONY: powerline
 powerline: fonts
@@ -116,3 +117,4 @@ st:
 	sed -i 's/defaultcs\ =\ 256/defaultcs\ =\ 239/' /tmp/st/config.h
 	sed -i 's/defaultrcs\ =\ 257/defaultrcs\ =\ 247/' /tmp/st/config.h
 	(cd /tmp/st;make;install st ~/apps/bin/st)
+	rm -rf /tmp/st
