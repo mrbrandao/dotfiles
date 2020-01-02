@@ -2,8 +2,9 @@
 This are my dotfiles
 
 #### tmux 
-
-Here is the list my plugins list for tmux.
+By default tmux will use the above plugins and powerline.
+The tmux plugin manager[(tpm)](https://github.com/tmux-plugins/tpm) will be auto-installed to install the all the other plugins use
+`prefix` + I
 
 ~/.tmux/plugins/
 ├── tmux-resurrect
