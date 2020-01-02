@@ -59,3 +59,26 @@ spacevim:
 	cat .SpaceVim/vimrc >> ~/.SpaceVim/vimrc
 	if [ ! -d ~/.SpaceVim.d ];then mkdir ~/.SpaceVim.d;fi
 	cp -pbv .SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml
+
+.PHONY: i3
+i3:
+	# installing i3 apps
+	if [ ! -d ~/apps ];then mkdir ~/apps;fi
+	cp -Rpavf apps ~/apps
+	# installing i3 config
+	if [ ! -d ~/.config/i3 ];then mkdir ~/.config/i3;fi
+	cp -Rpav i3 ~/.config/i3
+	# configuring xextras
+	if [ ! -d ~/.Xresources.d ];then mkdir ~/.Xresources.d;fi
+	cp -bv .Xdefaults .xinitrc .inputrc ~/
+	cp -bvafR .Xresources.d/* ~/.Xresources.d/
+
+.PHONY: st
+st:
+	git clone https://git.suckless.org/st /tmp/st
+	cp -bv st-config.h /tmp/st/config.h
+
+
+
+
+
