@@ -74,8 +74,9 @@ i3:
 	cp -bvafR .Xresources.d/* ~/.Xresources.d/
 
 .PHONY: st
-st: apps
+st:
 	if [ ! -d /tmp/st ];then git clone https://git.suckless.org/st /tmp/st;fi
-	sed -i 's/borderpx\ =\ 2/borderpx\ =\ 1' /tmp/st/config.h
+	cp /tmp/st/config.def.h /tmp/config.h
+	sed -i 's/borderpx\ =\ 2/borderpx\ =\ 1/' /tmp/st/config.h
 	sed -i 's/Mono:pixelsize=12/Mono:pixelsize=13/' /tmp/st/config.h
 	(cd /tmp/st;make;install st ~/apps/st)
