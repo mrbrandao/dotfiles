@@ -1,0 +1,132 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2017 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg at 163.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "PaperColor"
+    #colorscheme = "dracula"
+    #colorscheme = "jellybeans"
+    background = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    guifont = "Sauce Code Pro Nerd Font Complete:h11"
+    #guifont = "DroidSansMono\ Nerd\ Font:h11"
+    statusline_separator = "arrow"
+    statusline_inactive_separator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_display_mode = false
+    # The default value is vimfiler.
+    filemanager = "nerdtree"
+    sidebar_direction = 'left'
+    #bootstrap_before = "iscamaps#before"
+    #Set my maps and keys compatible with spacevim
+    vimcompatible = true
+
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto-completion-return-key-behavior = "complete"
+auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+
+[[layers]]
+name = "lang#go"
+
+[[layers]]
+name = "lang#toml"
+
+[[layers]]
+name = "lang#markdown"
+
+[[layers]]
+name = "lang#python"
+
+[[layers]]
+name = "lang#shell"
+
+[[layers]]
+name = "lang#sh"
+
+[[layers]]
+name = "lang#html"
+
+[[layers]]
+name = "lang#dockerfile"
+
+[[layers]]
+name = "lang#c"
+
+[[layers]]
+name = "lang#php"
+
+[[layers]]
+name = "git"
+
+[[layers]]
+name = "colorscheme"
+
+[[layers]]
+name = "autocomplete"
+
+[[layers]]
+  name = "VersionControl"
+
+# add custom_plugins: https://github.com/mhartington/oceanic-next
+[[custom_plugins]]
+  name = "mhartington/oceanic-next"
+  merged = 0
+
+# add custom_plugins: https://github.com/tpope/vim-vividchalk
+[[custom_plugins]]
+  name = "tpope/vim-vividchalk"
+  merged = 0
+
+
+# add custom_plugins: https://github.com/tpope/vim-vividchalk
+[[custom_plugins]]
+  name = "NLKNguyen/papercolor-theme"
+  merged = 0
+
+# add custom_plugins: https://github.com/dracula/dracula-theme
+[[custom_plugins]]
+  name = "dracula/vim.git"
+  merged = 0
+
+# add custom_plugins: https://github.com/ryanoasis/vim-devicons
+[[custom_plugins]]
+  name = "ryanoasis/vim-devicons"
+  merged = 0
+
+[[custom_plugins]]
+  name = "scrooloose/nerdtree"
+  merged = 0
+
+[[custom_plugins]]
+  name = "Xuyuanp/nerdtree-git-plugin"
+  merged = 0
+
+# go delve debugger https://github.com/sebdah/vim-delve
+[[custom_plugins]]
+  name = "sebdah/vim-delve"
+  merged = 0
+
+# terraform integration
+[[custom_plugins]]
+  name = "hashivim/vim-terraform"
+  merged = 0

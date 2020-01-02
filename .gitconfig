@@ -1,0 +1,6 @@
+[push]
+	default = simple
+[color]
+	ui = auto
+[branch]
+	autosetuprebase = always

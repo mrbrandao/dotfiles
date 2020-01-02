@@ -1,0 +1,79 @@
+! xterm ----------------------------------------------------------------------
+
+xterm*VT100.geometry:     80x25
+xterm*faceName:           Terminus:style=Regular:size=10
+!xterm*faceName: Y.OzFont:style=Regular:size=8
+!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*foreground: rgb:b2/b2/b2
+xterm*background: rgb:00/00/00
+xterm*selectToclipboard: true
+xterm*VT100.Translations: #override \n\
+    Ctrl Shift <KeyPress> C:  copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD)\n
+
+
+!------------------------------------------------------------------------------
+! c o l o r -  s e t t i n g s
+
+*background: #000000
+*foreground: #cccccc
+
+! Default
+! 0: black
+!*color0:  #222222
+!*color8:  #222222
+!! 1: red
+!*color1:  #9f6767
+!*color9:  #9f6767
+!! 2: green
+!*color2:  #92ac68
+!*color10: #92ac68
+!! 3: yellow
+!*color3:  #d0d293
+!*color11: #d0d293
+!! 4: blue
+!*color4:  #9aacc3
+!*color12: #9aacc3
+!! 5: magenta
+!*color5:  #bb77a4
+!*color13: #bb77a4
+!! 6: cyan
+!*color6:  #77bbb5
+!*color14: #77bbb5
+!! 7: white
+!*color7:  #777777
+!*color15: #777777
+
+!! xft
+Xft.dpi: 96
+Xft.antialias: true.
+Xft.rgba: rgb.
+Xft.hinting: true.
+Xft.hintstyle: hintslight
+
+!------------------------------------------------------------------------------
+! u r x v t
+
+URxvt*geometry:         112x22  
+!URxvt*font:            xft:terminus:size=8
+URxvt*font: xft:DejaVu Sans Mono:size=10
+URxvt*urlLauncher:         firefox  
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:        true
+URxvt*scrollColor:        #000000
+
+URxvt*perl-ext:            default,matcher
+URxvt*matcher.button:        1
+URxvt*urlLauncher:              firefox
+
+urxvt.matcher.pattern.0: \\b(?:(?:https?|ftp|news|file):\/\/|mailto:)[ab-zA-Z0-9\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [ab-zA-Z0-9\-\@;\/?:&=%\$_+!*\x27()~]
+URxvt*matcher.pattern.0: \\b(?:(?:https?|ftp):\/\/|mailto:)[\\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [\\w\-\@;\/?:&=%\$_+!*\x27()~]
+URxvt*matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+!!! This one matches image URLs and open them in FEH
+URxvt*matcher.pattern.2:    \\bhttps?:\/\/[\\w-.]*\/[\\w./?&@#-]*.(jpg|jpeg|png)
+URxvt*matcher.launcher.2:    feh $0
+
+!!! Open youtubeliks in your own youtubescript
+URxvt*matcher.pattern.3:        \\bhttp:\/\/(www.youtube|youtube).com\/watch\\?v=([\\w-]*)
+URxvt*matcher.launcher.3:    /usr/local/bin/dutub $2

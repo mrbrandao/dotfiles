@@ -1,0 +1,133 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set imap_user = 'myemail@gmail.com'
+set imap_pass = ''
+set from='myemail@gmail.com'
+set realname='MyName'
+set folder = imaps://imap.gmail.com/
+set spoolfile = imaps://imap.gmail.com/INBOX
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set smtp_url = 'smtp://myemail@gmail.com@smtp.gmail.com:587/'
+set smtp_pass = ''
+set move = no
+set imap_keepalive = 900
+set sort = threads 
+set sort_aux = reverse-last-date-received
+set signature = "~/.mutt/sign
+set editor = vim
+#set sort = reverse-date-received
+bind index "G" imap-fetch-mail
+folder-hook . 'uncolor index "~b \"Hi Joe\" ~R !~T !~F !~p !~P"'
+folder-hook ""!"" 'color index brightyellow black "~b \"MyName\" ~N !~T !~F !~p !~P"'
+
+color progress white red
+color index cyan black ".*"
+color index_author default black ".*"
+color index_author blue default "Fabio"
+color index_author yellow default "kelly"
+
+source "gpg -d ~/.mutt/old.gpg |"
+source ~/.mutt/gpg.rc
+source ~/.mutt/crypt
+
+set pgp_use_gpg_agent = yes
+set pgp_sign_as = MyGPGKey
+set pgp_timeout = 3600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+set crypt_autoencrypt=yes
+
+
+
+
+
+#  # Entire index line
+#color index white black '.*'
+#   
+#      # Highlight the flags for flagged (~F) emails
+color index_flags default red '~F'
+#       
+#       # Subject, %s
+#       # Look for a particular subject (~s)
+#color index_subject brightcyan default '~s\(closes #[0-9]+\)'
+#        
+#        # Number of messages in a collapsed thread, %M
+color index_collapsed default brightblue
+#         
+#         # Date field
+color index_date green default
+#          
+#          # Message label, %y %Y
+color index_label default brightgreen
+#           
+#           # Message number, %C
+color index_number red default
+#            
+#            # Message size, %c %l
+color index_size cyan default
+#             
+#vim: syntax=muttrc
+## For the examples below, set some defaults
+set status_format='-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---'
+set index_format='%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s'
+#set sort_aux=last-date-received
+# 
+# # 'status color' can take up to 2 extra parameters
+#  
+#color status foreground background [ regex [ num ]]
+#   
+#   # 0 extra parameters
+#   # Set the default color for the entire status line
+color status blue black
+#    
+#    # 1 extra parameter
+#    # Set the color for a matching pattern
+#color status foreground background regexp
+#     
+#     # Highlight New, Deleted, or Flagged emails
+#color status grey '(New|Del|Flag):[0-9]+'
+#color status brightred white '(New|Del|Flag):[0-9]+'
+#      
+#      # Highlight mailbox ordering if it's different from the default
+#      # First, highlight anything (*/*)
+color status brightred default '\([^)]+/[^)]+\)'
+#       
+#       # Then override the color for one specfic case
+color status default   default '\(threads/last-date-received\)'
+#        
+#        # 2 extra parameters
+        # Set the color for the nth submatch of a pattern
+#color status foreground background regexp num
+#         
+#         # Highlight the contents of the []s but not the [] themselves
+color status green default '\[([^]]+)\]' 1
+#          
+#          # The '1' refers to the first regex submatch, which is the inner
+#          # part in ()s
+#           
+#           # Highlight the mailbox
+color status brightwhite default 'Mutt: ([^ ]+)' 1
+#            
+#            # Search for 'Mutt: ' but only highlight what comes after it
+
+
+
+
+
+# unset ssl_ca_certificates_file
+# unset ssl_usesystemcerts
+#
+# # SSL hardening
+# set ssl_force_tls=yes
+# set ssl_starttls=yes
+# set ssl_use_sslv2=no
+# set ssl_use_sslv3=no
+# set ssl_use_tlsv1=no
+# set ssl_use_tlsv1_1=no
+# set ssl_use_tlsv1_2=yes
+# set ssl_verify_dates=yes
+# set ssl_verify_host=yes
+alias fulano Fulano <fulano@gmail.com>

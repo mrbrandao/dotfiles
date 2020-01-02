@@ -1,0 +1,9 @@
+! xterm ----------------------------------------------------------------------
+
+xterm*VT100.geometry:     80x25
+xterm*faceName:           Terminus:style=Regular:size=10
+!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+XTerm*foreground: rgb:b2/b2/b2
+XTerm*background: rgb:00/00/00
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+xterm*selectToClipboard:true

@@ -1,0 +1,190 @@
+  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+   ██                                                                       ██
+  █▌    -   CREATE ASCII ANSI ART QR CODES IN LINUX TERMINAL TO WINDOWS  -   █▌
+ █▌                                                                           █▌
+ █                                                                            ▐▌
+ █ One day I needed to make a QR code using the ANSI block character so I     ▐▌
+ █ just did it by hand in good old Windows Notepad. Had I known about this    ▐▌
+ █ then it would have been a time saver :). There's probably a faster, better ▐▌
+ █ method than what I'm going to demonstrate (using Linux & Windows), but     ▐▌
+ █ this works nice and fast for me. This is also how I made the mewbies       ▐▌
+ █ QR code under the main menu (on the left) - it is all text, not an image.  ▐▌
+ █                                                                            ▐▌
+ █ LINUX TERMINAL - CREATE QR CODE                                            ▐▌
+ █ LINUX - CONVERT QR CODE PNG TO ASCII ART                                   ▐▌
+ █ NIX OR WIN - CREATE THE ASCII/ANSI BLOCK QR CODE                           ▐▌
+ █                                                                            ▐▌
+ █ LINUX TERMINAL - CREATE QR CODE:                                           ▐▌
+ █ ````````````````````````````````                                           ▐▌
+ █ Create your own QR codes as PNG images using qrencode, website is HERE,    ▐▌
+ █ Debian package page is HERE.                                               ▐▌
+ █ We also need 'ImageMagick's convert' to convert the png it creates to jpg  ▐▌
+ █ for 'jpg2a' to convert it to ASCII art.                                    ▐▌
+ █                                                                            ▐▌
+ █ To install those needed and their dependencies:                            ▐▌
+ █ su                                                                         ▐▌
+ █ aptitude update                                                            ▐▌
+ █ aptitude install qrencode libcurl3 jp2a imagemagick                        ▐▌
+ █ exit                                                                       ▐▌
+ █                                                                            ▐▌
+ █ (jfyi - jp2a more info here and imagemagick's convert more info here.)     ▐▌
+ █                                                                            ▐▌
+ █ QRENCODE USAGE:                                                            ▐▌
+ █ qrencode -s [pixel size of the QR code, not final image] -m [margin size / ▐▌
+ █ quiet area outside] -o [output file name] 'text for QR code'               ▐▌
+ █                                                                            ▐▌
+ █ So lets try it, make an image directory:                                   ▐▌
+ █ cd ~ && mkdir images && cd images                                          ▐▌
+ █ NOTE: If the file name already exist it will be overwritten.               ▐▌
+ █ qrencode -s 6 -m 0 -o mewbies.com_qr_code_by_qrencode.png 'mewbies.com'    ▐▌
+ █ The file will be saved in your working directory unless you specify a      ▐▌
+ █ path.                                                                      ▐▌
+ █ That's it. Here is the result:                                             ▐▌
+ █                                                                            ▐▌
+ █                            qrcode mewbies.com
+ █ For other variables:                                                       ▐▌
+ █ man qrencode                                                               ▐▌
+ █ q                                                                          ▐▌
+ █                                                                            ▐▌
+ █ LINUX - CONVERT QR CODE PNG TO ASCII ART:                                  ▐▌
+ █ `````````````````````````````````````````                                  ▐▌
+ █ Now to convert the above QR code png to jpg, using ImageMagick's convert,  ▐▌
+ █ so that jp2a can convert it to ASCII art. I'll use only the characters     ▐▌
+ █ 'M' & '.':                                                                 ▐▌
+ █ convert mewbies.com_qr_code_by_qrencode.png jpg:- | jp2a --chars=M. --width=63  -
+ █ The Result:                                                                ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM...MMMMMMMMMMMMMMM...MMMMMMMMMMMMMMMMMMMMM       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM...MMMMMMMMMMMMMMM...MMMMMMMMMMMMMMMMMMMMM       ▐▌
+ █      MMM...............MMM...MMM...MMM...MMM...MMM...............MMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM...MMM...............MMM...MMMMMMMMM...MMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM...MMM...............MMM...MMMMMMMMM...MMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM...MMMMMMMMMMMM......MMM...MMMMMMMMM...MMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM...............MMM...MMM...MMMMMMMMM...MMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM...............MMM...MMM...MMMMMMMMM...MMM       ▐▌
+ █      MMM...............MMM...MMMMMM...MMM......MMM...............MMM       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM...MMM...MMM...MMM...MMMMMMMMMMMMMMMMMMMMM       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM...MMM..MMMMM..MMM...MMMMMMMMMMMMMMMMMMMMM       ▐▌
+ █      ...........................MMMMMMMMMMMM........................       ▐▌
+ █      MMMMMM......MMMMMMMMM......MMM...MMM.........MMM...MMMMMMMMMMMM       ▐▌
+ █      MMMMM.......MMMMMMMM.......MMM...MMMM.........MM...MMMMMMMMMMMM       ▐▌
+ █      MMM......MMM...MMM............MMMMMMMMM.........MMMMMMMMMMMM...       ▐▌
+ █      ...MMMMMMMMM......MMM...MMMMMM...MMM......MMMMMMMMM......MMM...       ▐▌
+ █      ...MMMMMMMMM......MM....MMMMMM...MMM......MMMMMMMMM......MMM...       ▐▌
+ █      ......MMM...MMMMMM.........MMMMMM......MMM...............MMM...       ▐▌
+ █      MMMMMMMMM......MMMMMM...MMM...MMM...MMMMMM.........MMM.........       ▐▌
+ █      MMMMMMMM.......MMMMM....MMM...MMM...MMMMMMM........MMMM........       ▐▌
+ █      ........................MMM...MMM...MMMMMMMMMMMMMMMMMMMMMMMM...       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM......MMM......MMMMMMMMM...MMM...MMMMMM...       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM.....MMMM......MMMMMMMMM...MMM....MMMMMM..       ▐▌
+ █      MMM...............MMM...MMMMMMMMMMMMMMMMMM......MMM......MMMMMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM...MMMMMM...MMM...MMM...MMM.........MMM...       ▐▌
+ █      MMM...MMMMMMMMM...MMM...MMMMMM...MMM...MMM....MM.........MMMM..       ▐▌
+ █      MMM...MMMMMMMMM...MMM.........MMM...MMM.........MMM...MMMMMMMMM       ▐▌
+ █      MMM...MMMMMMMMM...MMM............MMM...MMMMMM...MMMMMMMMM......       ▐▌
+ █      MMM...MMMMMMMMM...MMM............MMM...MMMMMM...MMMMMMMMM......       ▐▌
+ █      MMM...............MMM...MMMMMMMMM......MMM......MMM............       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM...MMM...MMMMMM...MMM......MMM.........MMM       ▐▌
+ █      MMMMMMMMMMMMMMMMMMMMM...MMM...MMMMMM...MMM......MMM.........MMM       ▐▌
+ █                                                                            ▐▌
+ █ TIPS:                                                                      ▐▌
+ █ qrencode -s option use an even number                                      ▐▌
+ █ jp2a width = 1/2 of the size of the width of the QR image created          ▐▌
+ █ This way the resulting ASCII will be square. You could use -s 5, as long   ▐▌
+ █ as the resulting image size is cleanly divisible.                          ▐▌
+ █                                                                            ▐▌
+ █ NIX OR WIN - CREATE THE ASCII/ANSI BLOCK QR CODE:                          ▐▌
+ █ `````````````````````````````````````````````````                          ▐▌
+ █ In Linux use a file editor or you could use for example sed to search      ▐▌
+ █ and replace. Because I only use Debian remotely from my Windows PC I'm     ▐▌
+ █ going to use Notepad++ :                                                   ▐▌
+ █ Open a new file in Notepad++, FIRST 'Save as type' as file - 'MSDOS        ▐▌
+ █ Style/ASCII art' with the extension .nfo. Then I copy the output to my     ▐▌
+ █ new .nfo file in Notepad++. Do some touchups; corners are missing 'M's.    ▐▌
+ █ Then top menu Search/Replace M with: '█', select 'Replace All'. I could    ▐▌
+ █ then replace all '.' with a space or another character, but I like it.     ▐▌
+ █                                                                            ▐▌
+ █ The Result:                                                                ▐▌
+ █                                                                            ▐▌
+ █      █████████████████████...███████████████...█████████████████████       ▐▌
+ █      █████████████████████...███████████████...█████████████████████       ▐▌
+ █      ███...............███...███...███...███...███...............███       ▐▌
+ █      ███...█████████...███...███...............███...█████████...███       ▐▌
+ █      ███...█████████...███...███...............███...█████████...███       ▐▌
+ █      ███...█████████...███...████████████......███...█████████...███       ▐▌
+ █      ███...█████████...███...............███...███...█████████...███       ▐▌
+ █      ███...█████████...███...............███...███...█████████...███       ▐▌
+ █      ███...............███...██████...███......███...............███       ▐▌
+ █      █████████████████████...███...███...███...█████████████████████       ▐▌
+ █      █████████████████████...███..█████..███...█████████████████████       ▐▌
+ █      ...........................████████████........................       ▐▌
+ █      ██████......█████████......███...███.........███...████████████       ▐▌
+ █      █████.......████████.......███...████.........██...████████████       ▐▌
+ █      ███......███...███............█████████.........████████████...       ▐▌
+ █      ...█████████......███...██████...███......█████████......███...       ▐▌
+ █      ...█████████......██....██████...███......█████████......███...       ▐▌
+ █      ......███...██████.........██████......███...............███...       ▐▌
+ █      █████████......██████...███...███...██████.........███.........       ▐▌
+ █      ████████.......█████....███...███...███████........████........       ▐▌
+ █      ........................███...███...████████████████████████...       ▐▌
+ █      █████████████████████......███......█████████...███...██████...       ▐▌
+ █      █████████████████████.....████......█████████...███....██████..       ▐▌
+ █      ███...............███...██████████████████......███......██████       ▐▌
+ █      ███...█████████...███...██████...███...███...███.........███...       ▐▌
+ █      ███...█████████...███...██████...███...███....██.........████..       ▐▌
+ █      ███...█████████...███.........███...███.........███...█████████       ▐▌
+ █      ███...█████████...███............███...██████...█████████......       ▐▌
+ █      ███...█████████...███............███...██████...█████████......       ▐▌
+ █      ███...............███...█████████......███......███............       ▐▌
+ █      █████████████████████...███...██████...███......███.........███       ▐▌
+ █      █████████████████████...███...██████...███......███.........███       ▐▌
+ █                                                                            ▐▌
+ █                                                                            ▐▌
+ █ Just to see - variation replacing '.' with '░':                            ▐▌
+ █                                                                            ▐▌
+ █      █████████████████████░░░███████████████░░░█████████████████████       ▐▌
+ █      █████████████████████░░░███████████████░░░█████████████████████       ▐▌
+ █      ███░░░░░░░░░░░░░░░███░░░███░░░███░░░███░░░███░░░░░░░░░░░░░░░███       ▐▌
+ █      ███░░░█████████░░░███░░░███░░░░░░░░░░░░░░░███░░░█████████░░░███       ▐▌
+ █      ███░░░█████████░░░███░░░███░░░░░░░░░░░░░░░███░░░█████████░░░███       ▐▌
+ █      ███░░░█████████░░░███░░░████████████░░░░░░███░░░█████████░░░███       ▐▌
+ █      ███░░░█████████░░░███░░░░░░░░░░░░░░░███░░░███░░░█████████░░░███       ▐▌
+ █      ███░░░█████████░░░███░░░░░░░░░░░░░░░███░░░███░░░█████████░░░███       ▐▌
+ █      ███░░░░░░░░░░░░░░░███░░░██████░░░███░░░░░░███░░░░░░░░░░░░░░░███       ▐▌
+ █      █████████████████████░░░███░░░███░░░███░░░█████████████████████       ▐▌
+ █      █████████████████████░░░███░░█████░░███░░░█████████████████████       ▐▌
+ █      ░░░░░░░░░░░░░░░░░░░░░░░░░░░████████████░░░░░░░░░░░░░░░░░░░░░░░░       ▐▌
+ █      ██████░░░░░░█████████░░░░░░███░░░███░░░░░░░░░███░░░████████████       ▐▌
+ █      █████░░░░░░░████████░░░░░░░███░░░████░░░░░░░░░██░░░████████████       ▐▌
+ █      ███░░░░░░███░░░███░░░░░░░░░░░░█████████░░░░░░░░░████████████░░░       ▐▌
+ █      ░░░█████████░░░░░░███░░░██████░░░███░░░░░░█████████░░░░░░███░░░       ▐▌
+ █      ░░░█████████░░░░░░██░░░░██████░░░███░░░░░░█████████░░░░░░███░░░       ▐▌
+ █      ░░░░░░███░░░██████░░░░░░░░░██████░░░░░░███░░░░░░░░░░░░░░░███░░░       ▐▌
+ █      █████████░░░░░░██████░░░███░░░███░░░██████░░░░░░░░░███░░░░░░░░░       ▐▌
+ █      ████████░░░░░░░█████░░░░███░░░███░░░███████░░░░░░░░████░░░░░░░░       ▐▌
+ █      ░░░░░░░░░░░░░░░░░░░░░░░░███░░░███░░░████████████████████████░░░       ▐▌
+ █      █████████████████████░░░░░░███░░░░░░█████████░░░███░░░██████░░░       ▐▌
+ █      █████████████████████░░░░░████░░░░░░█████████░░░███░░░░██████░░       ▐▌
+ █      ███░░░░░░░░░░░░░░░███░░░██████████████████░░░░░░███░░░░░░██████       ▐▌
+ █      ███░░░█████████░░░███░░░██████░░░███░░░███░░░███░░░░░░░░░███░░░       ▐▌
+ █      ███░░░█████████░░░███░░░██████░░░███░░░███░░░░██░░░░░░░░░████░░       ▐▌
+ █      ███░░░█████████░░░███░░░░░░░░░███░░░███░░░░░░░░░███░░░█████████       ▐▌
+ █      ███░░░█████████░░░███░░░░░░░░░░░░███░░░██████░░░█████████░░░░░░       ▐▌
+ █      ███░░░█████████░░░███░░░░░░░░░░░░███░░░██████░░░█████████░░░░░░       ▐▌
+ █      ███░░░░░░░░░░░░░░░███░░░█████████░░░░░░███░░░░░░███░░░░░░░░░░░░       ▐▌
+ █      █████████████████████░░░███░░░██████░░░███░░░░░░███░░░░░░░░░███       ▐▌
+ █      █████████████████████░░░███░░░██████░░░███░░░░░░███░░░░░░░░░███       ▐▌
+ █                                                                            ▐▌
+ █ HERE is the .nfo file (browsers will not show it properly).                ▐▌
+ █                                                                            ▐▌
+ █ //----------------------------------------------------------------------   ▐▌
+ █                                                                            ▐▌
+ █ If you find mistakes, have suggestions, and or questions please post at    ▐▌
+ █ mewbies forum HERE - thank you.                                            ▐▌
+ █                                                                            ▐▌
+ █ Last update on 30 May '13                                                  ▐▌
+ █                                                                            ▐▌
+ █▌                                                                           █▌
+  █▌                          -   mewbies.com   -                            █▌
+   █▌                                                                       █▌
+    ██▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄██
+ 

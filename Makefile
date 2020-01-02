@@ -1,0 +1,5 @@
+
+
+
+bashrc:
+	install .bashrc ~/.bashrc
