@@ -1,5 +1,6 @@
 " ---Basic Settings ---
-"syntax on             " enable syntax 
+syntax on             " enable syntax 
+colorscheme dracula   " use this color theme
 set tabstop=2         " set tabs for only two blocks
 set shiftwidth=2      " set ident tabs for two blocks also
 set expandtab         " convert tabs to spaces
@@ -11,7 +12,9 @@ set smartcase         " search insensitive cases but switch if use Upper case eg
 "set textwidth=80      " set lines to autowrapp at 80 characters
 "set formatoptions+=t  
 set colorcolumn=100    " show a column at 100 charcacters as a rule
-highlight ColorColumn ctermbg=magenta
+"highlight ColorColumn ctermbg=magenta
+highlight Comment guifg=grey ctermfg=grey
+
 
 
 
@@ -44,10 +47,13 @@ set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:× "show indent
 
 "--- Pathogen Plugin Manager ---
 execute pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 filetype plugin indent on
 
 
 " --- Custom Plugins Settings ---
+"packadd! $HOME/.vim/bundle/dracula
 
 " --- IndenLine Helpers ---
 "
@@ -58,7 +64,7 @@ filetype plugin indent on
 "
 "
 " --- Airline Helpers ---
-let g:airline_theme='simple'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
