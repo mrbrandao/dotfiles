@@ -76,9 +76,7 @@ i3:
 .PHONY: st
 st:
 	git clone https://git.suckless.org/st /tmp/st
-	cp -bv st-config.h /tmp/st/config.h
-
-
-
-
-
+	cp /tmp/st/config.def.h /tmp/config.h
+	sed -i 's/borderpx\ =\ 2/borderpx\ =\ 1' /tmp/st/config.h
+	sed -i 's/Mono:pixelsize=12/Mono:pixelsize=13/' /tmp/st/config.h
+	(cd /tmp/st;make;install st ~/apps/st)

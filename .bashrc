@@ -56,3 +56,11 @@ alias cp="cp -v"
 alias rm="rm -i"
 alias mv="mv -v"
 
+# Termcap is outdated, old, and crusty, kill it.
+unset TERMCAP
+# Man is much better than us at figuring this out
+unset MANPATH
+# use vim on terminal
+set -o vi
+# my local apps path
+export PATH=$PATH:$HOME/apps
