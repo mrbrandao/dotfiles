@@ -41,6 +41,7 @@ fonts:
 	cp -pv .fonts/* ~/.local/share/fonts
 	wget https://github.com/madmalik/mononoki/releases/download/1.2/mononoki.zip -O /tmp/mononoki.zip
 	unzip /tmp/mononoki.zip -d ~/.local/share/fonts
+	cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 	ln -s ~/.local/share/fonts/* ~/.fonts
 	fc-cache -vf ~/.fonts
 	fc-cache -vf ~/.local/share/fonts
